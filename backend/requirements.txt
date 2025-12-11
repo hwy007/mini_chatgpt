@@ -1,7 +1,0 @@
-langchain>=1.0.0
-langchain-deepseek
-langchain-community
-langgraph
-langgraph-cli[inmem]
-langchain-tavily
-python-dotenv
