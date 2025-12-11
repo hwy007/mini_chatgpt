@@ -1,0 +1,74 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "DeepSeek-V3.2 Agent聊天应用前端 - 基于LangChain 1.1和DeepSeek-V3.2的创新Agent应用，为桌面Web端设计，提供类似ChatGPT的美观界面",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "type-check": "tsc --noEmit",
+    "start": "vite",
+    "tailwind:build": "tailwindcss -i ./src/index.css -o ./dist/output.css --minify"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.23.26",
+    "lucide-react": "^0.559.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "re-resizable": "^6.11.2",
+    "react-markdown": "^10.1.0",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.4.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.1",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "chatgpt",
+    "deepseek",
+    "langchain",
+    "mcp",
+    "agent",
+    "chat",
+    "ai"
+  ],
+  "author": "mini_chatgpt Team",
+  "license": "MIT"
+}
