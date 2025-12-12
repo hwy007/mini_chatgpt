@@ -40,7 +40,7 @@ def get_weather(loc: str):
 
     try:
         # Step 3. 发送GET请求
-        response = requests.get(url, params=params,timeout=5)
+        response = requests.get(url, params=params, timeout=5)
 
         # Step 4. 解析响应
         if response.status_code == 200:

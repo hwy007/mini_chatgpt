@@ -112,7 +112,7 @@ class HistoryManager:
         with open(INDEX_FILE, 'r', encoding='utf-8') as f:
             sessions = json.load(f)
             # 按时间倒序排序，最近的在上面
-            sessions.sort(key=lambda x: x.get("updated_time", 0, reversed=True))
+            sessions.sort(key=lambda x: x.get("updated_at", 0), reversed=True)
             return sessions
         
     

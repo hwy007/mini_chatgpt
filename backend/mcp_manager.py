@@ -97,7 +97,7 @@ class MCPManager:
                 # [前端适配] 将字典转为格式化的JSON字符串
                 "config_json": json.dumps(raw_config, ensure_ascii=False, indent=2)
             })
-            return results
+        return results
         
         
     # --- 核心功能2：连接测试 ---
@@ -139,7 +139,7 @@ class MCPManager:
             cmd = str(real_config.get("command", "")).lower()
 
             # 如果是 Python 模块调用(-m)，强制使用当前环境解释器
-            if "-m" in args or "python" in cmd:
+            if "-m" in args or cmd == "python":
                 # 强制将 command 字段修正为当前系统正在运行的 Python 解释器的绝对路径 (sys.executable)
                 current_python = sys.executable
                 print(f"[Auto-Fix] 路径修正: {current_python}")

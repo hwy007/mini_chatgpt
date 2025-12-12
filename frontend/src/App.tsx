@@ -896,13 +896,6 @@ export default function App() {
           {/* Right Section: QR Code + MCP Toolbox */}
           <div className="flex items-center space-x-3">
             <button
-              onClick={() => setIsQRCodeModalOpen(true)}
-              className="flex items-center justify-center space-x-2 px-3 py-1.5 rounded-lg transition-all text-sm border bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 border-indigo-200 hover:from-indigo-100 hover:to-purple-100 hover:border-indigo-300 hover:shadow-md cursor-pointer"
-            >
-              <Gift className="w-4 h-4" />
-              <span className={isLearningModeOpen || isRightSidebarOpen ? 'hidden' : 'hidden sm:inline'}>领取课件&源码</span>
-            </button>
-            <button
               onClick={() => setIsRightSidebarOpen(!isRightSidebarOpen)}
               className={`flex items-center justify-center space-x-2 px-3 py-1.5 rounded-lg transition-colors border text-sm cursor-pointer ${
                 isRightSidebarOpen

@@ -34,7 +34,7 @@ app = FastAPI(title="Mini ChatGPT Backend", version="1.0 (MVP)")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], # 生产环境建议替换为具体前端域名
-    allow_credentials=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
 )
@@ -109,7 +109,7 @@ async def delete_session(session_id: str):
         "status": "success"
     }
 
-@app.get("history/{session_id}")
+@app.get("/history/{session_id}")
 async def get_history(session_id: str):
     """点击侧边栏时，加载该会话的历史消息"""
     return HistoryManager(session_id).get_full_history()
@@ -141,7 +141,7 @@ async def chat_stream(request: ChatRequest):
     except Exception as e:
         # 如果 Agent 构建失败（比如某个MCP连不上），返回错误流
         async def error_gen():
-            yield format_sse("error", {"messages": f"Agent 初始化失败: {str(e)}"})
+            yield format_sse("error", {"message": f"Agent 初始化失败: {str(e)}"})
             yield format_sse("finish", {"status": "error"})
         return StreamingResponse(error_gen(), media_type="text/event-stream")
 
@@ -208,7 +208,7 @@ async def chat_stream(request: ChatRequest):
                     if hasattr(raw, "content"):
                         output_str = raw.content
                     elif isinstance(raw, (dict, list)):
-                        output_str = json.dump(raw, ensure_ascii=False)
+                        output_str = json.dumps(raw, ensure_ascii=False)
                     
                     yield format_sse("tool_end", {
                         "tool_name": name,
