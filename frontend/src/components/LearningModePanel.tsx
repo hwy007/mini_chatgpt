@@ -35,14 +35,6 @@ export function LearningModePanel({ isOpen, onClose, onWidthChange, onOpenQRCode
         {/* Header */}
         <div className="h-16 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-slate-100 flex items-center justify-between px-6 shrink-0 relative shadow-sm">
           <h2 className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">课程课件</h2>
-          
-          <button
-            onClick={onOpenQRCode}
-            className="flex items-center justify-center space-x-2 px-3 py-1.5 rounded-lg transition-all text-sm border bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 border-indigo-200 hover:from-indigo-100 hover:to-purple-100 hover:border-indigo-300 hover:shadow-md cursor-pointer"
-          >
-            <Gift className="w-4 h-4" />
-            <span>领取课件&源码</span>
-          </button>
 
           <div className="flex items-center space-x-2">
             <button
@@ -58,15 +50,6 @@ export function LearningModePanel({ isOpen, onClose, onWidthChange, onOpenQRCode
               <X className="w-5 h-5" />
             </button>
           </div>
-        </div>
-
-        {/* Content - HTML iframe */}
-        <div className="flex-1 bg-white">
-          <iframe 
-            src={`http://localhost:8002/courseware?timestamp=${timestamp}`}
-            className="w-full h-full border-0"
-            title="公开课课件"
-          />
         </div>
       </div>
     );
@@ -101,16 +84,6 @@ export function LearningModePanel({ isOpen, onClose, onWidthChange, onOpenQRCode
     >
       {/* Header */}
       <div className="h-16 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-slate-100 flex items-center justify-between px-6 shrink-0 relative shadow-sm">
-        <h2 className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">课程课件</h2>
-        
-        <button
-          onClick={onOpenQRCode}
-          className="flex items-center justify-center space-x-2 px-3 py-1.5 rounded-lg transition-all text-sm border bg-gradient-to-r from-indigo-50 to-purple-50 text-indigo-700 border-indigo-200 hover:from-indigo-100 hover:to-purple-100 hover:border-indigo-300 hover:shadow-md cursor-pointer"
-        >
-          <Gift className="w-4 h-4" />
-          <span>领取课件&源码</span>
-        </button>
-
         <div className="flex items-center space-x-2">
           <button
             onClick={toggleFullscreen}
@@ -125,15 +98,6 @@ export function LearningModePanel({ isOpen, onClose, onWidthChange, onOpenQRCode
             <X className="w-5 h-5" />
           </button>
         </div>
-      </div>
-
-      {/* Content - HTML iframe */}
-      <div className="absolute top-16 left-0 right-0 bottom-0 bg-white">
-        <iframe 
-          src={`http://localhost:8002/courseware?timestamp=${timestamp}`}
-          className="w-full h-full border-0"
-          title="公开课课件"
-        />
       </div>
     </Resizable>
   );
