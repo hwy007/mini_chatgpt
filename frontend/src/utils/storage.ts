@@ -1,30 +1,43 @@
+// Local storage utilities for conversations and MCP tools
+
 import { Conversation, MCPTool } from '../types';
 
-const KEYS = {
-  CONVERSATIONS: 'ds_agent_conversations',
-  ACTIVE_ID: 'ds_agent_active_id',
-  MCP_TOOLS: 'ds_agent_mcp_tools',
-};
+const CONVERSATIONS_KEY = 'deepseek_conversations';
+const MCP_TOOLS_KEY = 'deepseek_mcp_tools';
+const ACTIVE_CONVERSATION_KEY = 'deepseek_active_conversation';
 
 export const storage = {
-  saveConversations(conversations: Conversation[]): void {
-    localStorage.setItem(KEYS.CONVERSATIONS, JSON.stringify(conversations));
-  },
-  getConversations(): Conversation[] {
-    const data = localStorage.getItem(KEYS.CONVERSATIONS);
+  // Conversations
+  getConversations: (): Conversation[] => {
+    if (typeof window === 'undefined') return [];
+    const data = localStorage.getItem(CONVERSATIONS_KEY);
     return data ? JSON.parse(data) : [];
   },
-  setActiveConversationId(id: string): void {
-    localStorage.setItem(KEYS.ACTIVE_ID, id);
+
+  saveConversations: (conversations: Conversation[]) => {
+    if (typeof window === 'undefined') return;
+    localStorage.setItem(CONVERSATIONS_KEY, JSON.stringify(conversations));
   },
-  getActiveConversationId(): string | null {
-    return localStorage.getItem(KEYS.ACTIVE_ID);
+
+  getActiveConversationId: (): string | null => {
+    if (typeof window === 'undefined') return null;
+    return localStorage.getItem(ACTIVE_CONVERSATION_KEY);
   },
-  saveMCPTools(tools: MCPTool[]): void {
-    localStorage.setItem(KEYS.MCP_TOOLS, JSON.stringify(tools));
+
+  setActiveConversationId: (id: string) => {
+    if (typeof window === 'undefined') return;
+    localStorage.setItem(ACTIVE_CONVERSATION_KEY, id);
   },
-  getMCPTools(): MCPTool[] {
-    const data = localStorage.getItem(KEYS.MCP_TOOLS);
-    return data ? JSON.parse(data) : []; // 初始可返回默认工具
+
+  // MCP Tools
+  getMCPTools: (): MCPTool[] => {
+    if (typeof window === 'undefined') return [];
+    const data = localStorage.getItem(MCP_TOOLS_KEY);
+    return data ? JSON.parse(data) : [];
+  },
+
+  saveMCPTools: (tools: MCPTool[]) => {
+    if (typeof window === 'undefined') return;
+    localStorage.setItem(MCP_TOOLS_KEY, JSON.stringify(tools));
   },
 };
