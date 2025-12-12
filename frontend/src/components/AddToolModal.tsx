@@ -1,7 +1,7 @@
 import { X, Plus, Check, Plug } from 'lucide-react';
 import { useState } from 'react';
 import { MCPConfig } from '../types';
-import { toast } from 'sonner@2.0.3';
+import { Toaster, toast } from "sonner";
 
 interface AddToolModalProps {
   isOpen: boolean;

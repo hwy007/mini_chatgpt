@@ -1,5 +1,5 @@
 import { X, Copy, Check, Plug, Trash2, Save } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { Toaster, toast } from "sonner";
 import { MCPTool } from '../types';
 import { useState, useEffect } from 'react';
 

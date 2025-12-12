@@ -1,5 +1,5 @@
 import { X, Wand2, Settings, Zap, Plus } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { toast } from 'sonner';
 import { MCPTool } from '../types';
 import { useState } from 'react';
 import { Resizable } from 're-resizable';

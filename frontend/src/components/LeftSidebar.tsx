@@ -1,5 +1,5 @@
 import { X, Plus, MessageSquare, Pencil, Trash2, Check, XIcon } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
+import { Toaster, toast } from "sonner";
 import { Conversation } from '../types';
 import { useState } from 'react';
 import { ConfirmDialog } from './ConfirmDialog';

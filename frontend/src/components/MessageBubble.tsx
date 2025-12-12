@@ -42,13 +42,15 @@ export function MessageBubble({ message, onToggleToolExpand }: MessageBubbleProp
 
   // AI消息 - 新格式（使用 blocks）
   if (message.blocks) {
+    const blocks = message.blocks;
+
     return (
       <div className="flex items-start fade-in mb-8">
         <div className="w-8 h-8 rounded-lg bg-indigo-600 flex-shrink-0 flex items-center justify-center text-white text-xs mr-3 mt-1 shadow-md">
           AI
         </div>
         <div className="flex-1 min-w-0">
-          {message.blocks.map((block) => {
+          {blocks.map((block) => {
             // 文本块
             if (block.type === 'text') {
               const textBlock = block as TextBlock;
@@ -63,7 +65,7 @@ export function MessageBubble({ message, onToggleToolExpand }: MessageBubbleProp
                       __html: renderMarkdown(textBlock.content) 
                     }} 
                   />
-                  {message.isStreaming && block === message.blocks[message.blocks.length - 1] && (
+                  {message.isStreaming && block === blocks[blocks.length - 1] && (
                     <span className="inline-block w-2 h-4 bg-indigo-600 ml-1 animate-pulse"></span>
                   )}
                 </div>

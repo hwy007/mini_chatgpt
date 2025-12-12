@@ -1,0 +1,16 @@
+{
+    "tools": {
+        "time": {
+            "type": "stdio",
+            "description": "提供精确的当前时间查询和时区转换功能。",
+            "active": true,
+            "config": {
+                "command": "python",
+                "args": [
+                    "-m",
+                    "mcp_server_time"
+                ]
+            }
+        }
+    }
+}

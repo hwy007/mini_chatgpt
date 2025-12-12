@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, Wrench, Send, BookOpen, Gift } from 'lucide-react';
-import { Toaster } from 'sonner@2.0.3';
-import { toast } from 'sonner@2.0.3';
+import { Toaster } from 'sonner';
+import { toast } from 'sonner';
 import { LeftSidebar } from './components/LeftSidebar';
 import { RightSidebar } from './components/RightSidebar';
 import { WelcomeScreen } from './components/WelcomeScreen';
@@ -13,7 +13,6 @@ import { AddToolModal } from './components/AddToolModal';
 import { GlobalSettingsModal } from './components/GlobalSettingsModal';
 import { ConfirmDialog } from './components/ConfirmDialog';
 import { LearningModePanel } from './components/LearningModePanel';
-import { QRCodeModal } from './components/QRCodeModal';
 import { Conversation, Message, MCPTool, WishAnalysisResult, MessageChunk, TextBlock, ToolCallBlock } from './types';
 import { storage } from './utils/storage';
 import { generateStreamingResponse } from './utils/streamingAgent';
@@ -968,12 +967,6 @@ export default function App() {
         onOpenGlobalSettings={() => setIsGlobalSettingsOpen(true)}
         onOpenAddTool={() => setAddToolModal({ isOpen: true, tool: null })}
         onWidthChange={setRightSidebarWidth}
-      />
-
-      {/* QR Code Modal */}
-      <QRCodeModal 
-        isOpen={isQRCodeModalOpen} 
-        onClose={() => setIsQRCodeModalOpen(false)} 
       />
 
       {/* Modals */}
