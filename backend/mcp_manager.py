@@ -172,6 +172,12 @@ class MCPManager:
     # --- 核心功能3：AI智能推荐 ---
     async def ai_recommend_tools(self, user_query: str) -> List[Dict]:
         """根据用户需求推荐工具"""
+        if not self.registry:
+            raise ValueError("MCP 知识库为空，无法进行推荐")
+
+        if not os.getenv("DEEPSEEK_API_KEY"):
+            raise ValueError("DeepSeek API Key 未配置，无法调用智能推荐")
+        
         # 1. 压缩知识库 (只取关键字段，省 token)
         registry_text = json.dumps([
             {
