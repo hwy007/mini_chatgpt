@@ -328,7 +328,10 @@ async def search_mcp_ai(req: MCPSearchRequest):
     [智能] AI 推荐工具
     连接 DeepSeek 模型，分析用户需求并查询 Registry
     """
-    return await mcp_manager.ai_recommend_tools(req.query)
+    try:
+        return await mcp_manager.ai_recommend_tools(req.query)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/mcp/install")
 async def install_mcp_tool(req: MCPInstallRequest):
